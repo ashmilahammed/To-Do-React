@@ -1,0 +1,157 @@
+/* General styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ff2929, #46a0ff);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Main container */
+.to-do-list {
+  background: #fff;
+  width: 400px;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading */
+.to-do-list h1 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+/* Input and add button container */
+.to-do-list div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+/* Input field */
+.to-do-list input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.to-do-list input[type="text"]:focus {
+  border-color: rgb(255, 112, 112);
+  box-shadow: 0 0 5px #ff4f4f;
+}
+
+/* Add button */
+.add-button {
+  background: #33be38;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-button:hover {
+  background: #409d47;
+}
+
+/* Task list */
+.to-do-list ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Task item */
+.to-do-list li {
+  background: #e4e4e4;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.to-do-list li:hover {
+  transform: scale(1.02);
+}
+
+/* Task text */
+.text {
+  font-size: 16px;
+  flex: 1;
+  color: #333;
+  margin-right: 10px;
+}
+
+/* Buttons inside list items */
+.delete-button,
+.move-button {
+  background: #ff4343;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  margin-left: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.delete-button:hover {
+  background: #d32323;
+}
+
+.move-button {
+  background: #4dabf7;
+}
+
+.move-button:hover {
+  background: #339af0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+  .to-do-list {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .to-do-list div {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+}
