@@ -127,6 +127,27 @@ body {
   background: #339af0;
 }
 
+.text {
+  font-size: 18px;
+  margin-right: 10px;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.done-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.done-button:hover {
+  background-color: #3e8e41;
+}
+
+
 /* Animation */
 @keyframes fadeIn {
   from {
@@ -155,3 +176,5 @@ body {
     width: 100%;
   }
 }
+
+

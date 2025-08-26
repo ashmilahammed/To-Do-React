@@ -13,33 +13,41 @@ function ToDoList() {
 
     function addTask() {
         if (newTask.trim() !== "") {
-            setTasks(t => [...t, newTask]);
+            // setTasks(t => [...t, newTask]);
+            setTasks(t => [...t, { text: newTask, completed: false }]);
             setNewTask("");
         }
     }
 
     function deleteTask(index) {
-        const updatedTasks = tasks.filter((_,i) => i !== index);
+        const updatedTasks = tasks.filter((_, i) => i !== index);
         setTasks(updatedTasks);
     }
 
     function moveTaskUp(index) {
-        if(index > 0){
+        if (index > 0) {
             const updatedTasks = [...tasks];
-            [updatedTasks[index], updatedTasks[index - 1]] = 
-            [updatedTasks[index - 1], updatedTasks[index]];
+            [updatedTasks[index], updatedTasks[index - 1]] =
+                [updatedTasks[index - 1], updatedTasks[index]];
             setTasks(updatedTasks);
         }
     }
 
     function moveTaskDown(index) {
-        if(index < tasks.length - 1){
+        if (index < tasks.length - 1) {
             const updatedTasks = [...tasks];
-            [updatedTasks[index], updatedTasks[index + 1]] = 
-            [updatedTasks[index + 1], updatedTasks[index]];
+            [updatedTasks[index], updatedTasks[index + 1]] =
+                [updatedTasks[index + 1], updatedTasks[index]];
             setTasks(updatedTasks);
         }
     }
+
+    function toggleTaskCompletion(index) {
+        const updatedTasks = [...tasks];
+        updatedTasks[index].completed = !updatedTasks[index].completed;
+        setTasks(updatedTasks);
+    }
+
 
 
     return (
@@ -63,7 +71,25 @@ function ToDoList() {
             <ol>
                 {tasks.map((task, index) =>
                     <li key={index}>
-                        <span className='text'>{task}</span>
+
+                        {/* <span className='text'>{task}</span> */}
+                        <span
+                            className='text'
+                            style={{
+                                textDecoration: task.completed ? "line-through" : "none",
+                                color: task.completed ? "gray" : "black"
+                            }}
+                        >
+                            {task.text}
+                        </span>
+
+                        <button
+                            className='done-button'
+                            onClick={() => toggleTaskCompletion(index)}>
+                            {task.completed ? "Undo" : "Done"}
+                        </button>
+
+
                         <button
                             className='delete-button'
                             onClick={() => deleteTask(index)}>
